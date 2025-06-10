@@ -9,6 +9,9 @@ window.onload = () => {
     let navLinks = document.querySelectorAll(".nav .container .menus .menu");
     let sections = document.querySelectorAll("section");
 
+    // Accordion Components
+    let accordionsPanels = document.querySelectorAll(".accordion-panel");
+
     // Show Slides' Function
     function showSlide(index) {
 
@@ -49,6 +52,7 @@ window.onload = () => {
         }
     }
 
+    // Initial Function that run first
     showSlide();
     changeLinkState();
 
@@ -57,6 +61,7 @@ window.onload = () => {
         showSlide(slideIndex);
     }, 5000);
 
+    // Add click on slider dots'
     slideNavigatorDots.forEach(dot => {
 
         let dotIndex = dot.dataset.index;
@@ -66,8 +71,31 @@ window.onload = () => {
 
     });
 
+    // Add event listener to web when scrolling
     window.addEventListener("scroll", changeLinkState);
 
-    
+    // Add click on accordions' panels'
+    accordionsPanels.forEach(panel => {
+
+        // Get Accordion Panel Header and Icon
+        let panelHeader = panel.querySelector(".accordion-header");
+        let panelHeaderControl = panelHeader.querySelector(".panel-control");
+
+        // Get Accordion Content Wrapper
+        let panelContentWrapper = panel.querySelector(".accordion-content-wrapper");
+
+        panel.addEventListener("click", () => {
+            // Toggle Accordion Panel Header Active or not
+            panelHeader.classList.toggle("active");
+
+            // Rotate Accordion Panel Icon
+            panelHeaderControl.classList.toggle("rotate-45-deg");
+
+            // Toggle Accordion Panel Content Wrapper height
+            panelContentWrapper.classList.toggle("expanded");
+
+        });
+
+    });
 
 }
