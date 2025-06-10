@@ -1,10 +1,13 @@
 window.onload = () => {
 
-    // Slider Start
-    
+    // Slider Component(s)
     let slideIndex = 0;
     let slides = document.querySelectorAll(".hero .slides .slide");
     let slideNavigatorDots = document.querySelectorAll(".hero .container .slide-navigator .dot");
+
+    // Scroll Component(s)
+    let navLinks = document.querySelectorAll(".nav .container .menus .menu");
+    let sections = document.querySelectorAll("section");
 
     // Show Slides' Function
     function showSlide(index) {
@@ -28,11 +31,26 @@ window.onload = () => {
 
     }
 
+    // Show selected slide function
     function currentSlide(index) {
         showSlide(slideIndex = index);
     }
 
+    // Change link state function
+    function changeLinkState() {
+        let index = sections.length;
+
+        while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+        navLinks.forEach(link => { link.classList.remove("active"); });
+
+        if (window.scrollY - sections[index].offsetHeight < sections[index].offsetTop) {
+            navLinks[index].classList.add("active");
+        }
+    }
+
     showSlide();
+    changeLinkState();
 
     setInterval(() => {
         slideIndex++;
@@ -47,5 +65,9 @@ window.onload = () => {
         });
 
     });
+
+    window.addEventListener("scroll", changeLinkState);
+
+    
 
 }
