@@ -263,13 +263,14 @@ html::-webkit-scrollbar {
 /* About Us Start */
 
 .about {
-    min-height: 100vh;
     background-color: var(--white-color-100);
+    min-height: 100vh;
 }
 
 .about .container {
     margin: 0 auto;
     gap: 4rem;
+    min-height: inherit;
     padding: 4rem 0;
 }
 
@@ -280,6 +281,7 @@ html::-webkit-scrollbar {
 .about .container .left .title {
     font-size: 4rem;
     font-weight: 500;
+    height: 100%;
 }
 
 .about .container .left .desc {
@@ -289,23 +291,19 @@ html::-webkit-scrollbar {
 
 .about .container .left img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
 }
 
 .about .container .right {
-    gap: 1rem;
-}
-
-.about .container .right .row:first-child {
-    margin-top: auto;
+    justify-content: space-around;
+    height: 100%;
 }
 
 .about .container .right .row .title {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     color: var(--red-color-500);
 }
 
@@ -314,11 +312,13 @@ html::-webkit-scrollbar {
     text-align: justify;
 }
 
+.about .container .right .row .desc ul li {
+    font-size: 1.5rem;
+}
+
 .about .container .right .row.cta a {
     gap: 1rem;
     text-decoration: none;
-    margin-top: 2rem;
-    margin-bottom: 6rem;
 }
 
 .about .container .right .row.cta a .icon {
@@ -348,6 +348,119 @@ html::-webkit-scrollbar {
 .about .container .right .row.cta a .text {
     font-size: 1.5rem;
     color: var(--black-color-900);
+    text-align: justify;
 }
 
 /* About Us End */
+
+/* Achievements Start */
+
+.achievement {
+    min-height: 100vh;
+    background-color: var(--black-color-100);
+}
+
+.achievement .container {
+    margin: 0 auto;
+    min-height: inherit;
+    padding: 4.5rem 0;
+    gap: 1rem;
+}
+
+.achievement .container .row {
+    border-radius: 1rem;
+}
+
+.achievement .container .row:not(:first-child) {
+    border: 1px solid var(--white-color-500);
+}
+
+.achievement .container .row.grid-header {
+    background-image: url(../assets/images/univ-profile-4.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: fit-content;
+}
+
+.achievement .container .row.grid-header .title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--white-color-100);
+    text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+    margin: 0 1rem;
+}
+
+.achievement .container .academic-achievement {
+    gap: 1px;
+}
+
+.achievement .container .academic-achievement .left {
+    flex-basis: 100%;
+    height: 31rem;
+}
+
+.achievement .container .academic-achievement .left .title {
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+}
+
+.achievement .container .academic-achievement .right {
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.achievement .container .academic-achievement .right .desc{
+    font-size: 1.75rem;
+    padding: .5rem 1rem;
+}
+
+.achievement .container .academic-achievement .right .accordion {
+    gap: .5rem;
+}
+
+.achievement .container .academic-achievement .right .accordion .accordion-panel {
+    background-color: var(--white-color-500);
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: box-shadow .5s ease;
+}
+
+.achievement .container .academic-achievement .right .accordion .accordion-panel:hover {
+    box-shadow: 0 1px 1px var(--black-color-900);
+}
+
+.achievement .container .academic-achievement .right .accordion .accordion-panel .panel-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.achievement .container .academic-achievement .right .accordion .accordion-panel 
+.accordion-content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .5s ease;
+}
+
+.achievement .container .academic-achievement .right .accordion .accordion-panel.expanded
+.accordion-content-wrapper {
+    grid-template-rows: 1fr;
+}
+
+.achievement .container .academic-achievement .right .accordion .accordion-panel 
+.accordion-content-wrapper .accordion-content {
+    overflow: hidden;
+}
+
+.achievement .container .academic-achievement .right .accordion 
+.accordion-panel .accordion-content-wrapper .accordion-content ul {
+    list-style-position: inside;
+}
+
+.achievement .container .academic-achievement .right .accordion 
+.accordion-panel .accordion-content-wrapper .accordion-content ul li{
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+/* Achievements End */
