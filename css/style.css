@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+
+    font-size: 16px;
+    font-family: "EB Garamond", serif;
+
+    box-sizing: border-box;
+}
+
+:root {
+
+    --primary-color : #8B1E1E;
+    --secondary-color : #FFFFFF;
+    --tertiary-color : #000000;
+    --quartenary-color : #2191FB;
+    --quinary-color : #00A5E0;
+
+}
+
+/* Template CSS */
+
+.container {
+    width: 60%;
+}
+
+.flex {
+    display: flex;
+}
+
+
+/* Detailed CSS */
+.nav {
+    height: 5rem;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+    position: sticky;
+}
+
+.nav .container {
+    margin: 0 auto;
+    height: 100%;
+    align-items: center;
+}
+
+.nav .container .logo {
+    height: 100%;
+    margin-right: auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav .container .logo img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav .container .logo .logo-text {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.nav .container .menus {
+    gap: 2rem;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.nav .container .menu a {
+    display: block;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--tertiary-color);
+    transition: color .25s ease;
+}
+
+.nav .container .menu a:hover {
+    color: var(--quinary-color);
+}
+
+.nav .container .login {
+    height: 100%;
+    align-items: center;
+}
+
+.nav .container .login img {
+    height: 2rem;
+    width: 2rem;
+    object-fit: cover;
+}
