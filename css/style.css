@@ -55,6 +55,7 @@
     position: sticky;
     background-color: var(--secondary-color);
     top: 0;
+    z-index: 3;
 }
 
 .nav .container {
@@ -120,11 +121,14 @@
     position: absolute;
     inset: 0;
     opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
 }
 
 .hero .slide[data-active] {
     opacity: 1;
     z-index: 1;
+    transition-delay: 0ms;
 }
 
 .hero .slide img {
@@ -203,6 +207,17 @@
 
 .hero .container .slide-navigator .dot.active {
     background-color: rgb(0 0 0 / 75%);
+    position: relative;
+}
+
+.hero .container .slide-navigator .dot.active::after {
+    content: "";
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 100%);
+    position: absolute;
+    inset: 25%;
 }
 
 .hero .container .slide-navigator .dot:hover {
