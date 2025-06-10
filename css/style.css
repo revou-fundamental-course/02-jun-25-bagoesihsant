@@ -20,6 +20,8 @@
 
     --white-color-900 : #FFFFFF;
     --white-color-500 : #C2C2C2;
+    --white-color-400 : #dedede;
+    --white-color-300 : #F0F0F0;
     --white-color-100 : #FAFAFA;
     
     --black-color-900 : #000000;
@@ -72,6 +74,10 @@ html::-webkit-scrollbar {
 
 .justify-content-center {
     justify-content: center;
+}
+
+.rotate-45-deg {
+    transform: rotate(-45deg);
 }
 
 
@@ -357,7 +363,7 @@ html::-webkit-scrollbar {
 
 .achievement {
     min-height: 100vh;
-    background-color: var(--black-color-100);
+    background-color: var(--white-color-300);
 }
 
 .achievement .container {
@@ -372,7 +378,8 @@ html::-webkit-scrollbar {
 }
 
 .achievement .container .row:not(:first-child) {
-    border: 1px solid var(--white-color-500);
+    background-color: var(--white-color-300);
+    border: 1px solid rgb(0 0 0 / 15%);
 }
 
 .achievement .container .row.grid-header {
@@ -391,13 +398,12 @@ html::-webkit-scrollbar {
     margin: 0 1rem;
 }
 
-.achievement .container .academic-achievement {
-    gap: 1px;
-}
-
 .achievement .container .academic-achievement .left {
     flex-basis: 100%;
-    height: 31rem;
+}
+
+.achievement .container .academic-achievement:last-child .left {
+    flex-basis: 195%;
 }
 
 .achievement .container .academic-achievement .left .title {
@@ -414,6 +420,7 @@ html::-webkit-scrollbar {
 .achievement .container .academic-achievement .right .desc{
     font-size: 1.75rem;
     padding: .5rem 1rem;
+    text-align: justify;
 }
 
 .achievement .container .academic-achievement .right .accordion {
@@ -421,19 +428,29 @@ html::-webkit-scrollbar {
 }
 
 .achievement .container .academic-achievement .right .accordion .accordion-panel {
-    background-color: var(--white-color-500);
+    background-color: rgb(222 222 222 / 50%);
     padding: 1rem 2rem;
     cursor: pointer;
     transition: box-shadow .5s ease;
 }
 
 .achievement .container .academic-achievement .right .accordion .accordion-panel:hover {
-    box-shadow: 0 1px 1px var(--black-color-900);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 15%);
 }
 
-.achievement .container .academic-achievement .right .accordion .accordion-panel .panel-title {
+.achievement .container .academic-achievement .right .accordion .accordion-panel .accordion-header 
+.panel-title {
     font-size: 1.75rem;
     font-weight: 600;
+    margin-right: auto;
+}
+
+.achievement .container .academic-achievement .right .accordion .accordion-panel .accordion-header 
+.panel-control {
+    display: block;
+    height: 1.75rem;
+    width: 1.75rem;
+    transition: transform .5s ease;
 }
 
 .achievement .container .academic-achievement .right .accordion .accordion-panel 
@@ -443,8 +460,8 @@ html::-webkit-scrollbar {
     transition: grid-template-rows .5s ease;
 }
 
-.achievement .container .academic-achievement .right .accordion .accordion-panel.expanded
-.accordion-content-wrapper {
+.achievement .container .academic-achievement .right .accordion .accordion-panel
+.accordion-content-wrapper.expanded {
     grid-template-rows: 1fr;
 }
 
@@ -461,6 +478,14 @@ html::-webkit-scrollbar {
 .achievement .container .academic-achievement .right .accordion 
 .accordion-panel .accordion-content-wrapper .accordion-content ul li{
     font-size: 1.25rem;
+    margin: 1rem 0;
+    text-align: justify;
+}
+
+.achievement .container .academic-achievement .right .accordion .accordion-panel 
+.accordion-content-wrapper .accordion-content p{
+    font-size: 1.25rem;
+    text-align: justify;
     margin: 1rem 0;
 }
 /* Achievements End */
