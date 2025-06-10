@@ -14,22 +14,52 @@
 
 :root {
 
-    --primary-color : #8B1E1E;
-    --secondary-color : #FFFFFF;
-    --tertiary-color : #000000;
-    --quartenary-color : #2191FB;
-    --quinary-color : #00A5E0;
+    --red-color-900 : #8B1E1E;
+    --red-color-500 : #C73A35;
+    --red-color-100 : #EFC7CC;
 
+    --white-color-900 : #FFFFFF;
+    --white-color-500 : #C2C2C2;
+    --white-color-100 : #FAFAFA;
+    
+    --black-color-900 : #000000;
+    --black-color-500 : #7B7B7B;
+    --black-color-100 : #E9E9E9;
+
+    --turqoise-color-900 : #1D41A7;
+    --turqoise-color-500 : #2191FB;
+    --turqoise-color-100 : #BBDDFE;
+
+    --cerulean-color-900 : #00548A;
+    --cerulean-color-500 : #00A5E0;
+    --cerulean-color-100 : #B2E3F4;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 /* Template CSS */
 
 .container {
-    width: 60%;
+    width: 70%;
 }
 
 .flex {
     display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.col-2 {
+    grid-template-columns: auto auto;
 }
 
 .flex-col {
@@ -50,12 +80,12 @@
 /* Nav Start */
 
 .nav {
-    height: 5rem;
-    box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+    height: 4rem;
+    box-shadow: 0 4px 1rem rgb(0 0 0 / 15%);
     position: sticky;
-    background-color: var(--secondary-color);
+    background-color: var(--white-color-900);
     top: 0;
-    z-index: 3;
+    z-index: 4;
 }
 
 .nav .container {
@@ -64,7 +94,7 @@
 }
 
 .nav .container .logo {
-    height: 100%;
+    height: 80%;
     margin-right: auto;
     gap: 1rem;
 }
@@ -75,8 +105,9 @@
 }
 
 .nav .container .logo .logo-text {
-    font-size: 2rem;
-    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--red-color-900);
 }
 
 .nav .container .menus {
@@ -86,14 +117,18 @@
 
 .nav .container .menu a {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-decoration: none;
-    color: var(--tertiary-color);
+    color: var(--black-color-900);
     transition: color .25s ease;
 }
 
 .nav .container .menu a:hover {
-    color: var(--quinary-color);
+    color: var(--cerulean-color-500);
+}
+
+.nav .container .menu.active a {
+    color: var(--cerulean-color-500);
 }
 
 .nav .container .login {
@@ -101,8 +136,8 @@
 }
 
 .nav .container .login img {
-    height: 2rem;
-    width: 2rem;
+    height: 1.75rem;
+    width: 1.75rem;
     object-fit: cover;
     cursor: pointer;
 }
@@ -113,7 +148,6 @@
 
 .hero {
     min-height: 100vh;
-    background-color: var(--quartenary-color);
     position: relative;
 }
 
@@ -160,7 +194,7 @@
 .hero .container .greeting {
     font-size: 4rem;
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--white-color-900);
     text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
     margin-top: auto;
     margin-bottom: 1rem;
@@ -169,7 +203,7 @@
 .hero .container .desc {
     font-size: 1.5rem;
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--white-color-900);
     text-shadow: 0 4px 4px rgb(0 0 0 / 25%);
     margin-bottom: 2rem;
 }
@@ -179,21 +213,21 @@
     text-decoration: none;
     padding: .5rem 1.25rem;
     font-size: 1.25rem;
-    color: var(--secondary-color);
+    color: var(--white-color-900);
     border-radius: 1rem;
-    background-color: var(--quinary-color);
+    background-color: var(--cerulean-color-500);
     transition: background-color .25s ease, transform .25s ease;
     margin-bottom: auto;
 }
 
 .hero .container .cta:hover {
-    background-color: var(--quartenary-color);
+    background-color: var(--cerulean-color-900);
     transform: scale(1.05);
 }
 
 .hero .container .slide-navigator {
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 8vh;
 }
 
 .hero .container .slide-navigator .dot {
@@ -225,3 +259,95 @@
 }
 
 /* Hero End */
+
+/* About Us Start */
+
+.about {
+    min-height: 100vh;
+    background-color: var(--white-color-100);
+}
+
+.about .container {
+    margin: 0 auto;
+    gap: 4rem;
+    padding: 4rem 0;
+}
+
+.about .container .left {
+    gap: 1rem;
+}
+
+.about .container .left .title {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.about .container .left .desc {
+    font-size: 1.5rem;
+    color: var(--black-color-500);
+}
+
+.about .container .left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.about .container .right {
+    gap: 1rem;
+}
+
+.about .container .right .row:first-child {
+    margin-top: auto;
+}
+
+.about .container .right .row .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--red-color-500);
+}
+
+.about .container .right .row .desc {
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.about .container .right .row.cta a {
+    gap: 1rem;
+    text-decoration: none;
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+}
+
+.about .container .right .row.cta a .icon {
+    height: 3rem;
+    width: 3rem;
+    background-color: var(--black-color-500);
+    border-radius: 50%;
+    padding: 1rem;
+    position: relative;
+    transition: background-color .25s ease;
+}
+
+.about .container .right .row.cta a:hover .icon {
+    background-color: var(--black-color-900);
+}
+
+.about .container .right .row.cta a .icon img {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    object-fit: contain;
+    position: absolute;
+    inset: 18%;
+    filter: invert(100%) sepia(6%) saturate(0%) hue-rotate(115deg) brightness(108%) contrast(108%);
+}
+
+.about .container .right .row.cta a .text {
+    font-size: 1.5rem;
+    color: var(--black-color-900);
+}
+
+/* About Us End */
