@@ -273,9 +273,9 @@ window.onload = () => {
     }
 
     function rewriteGreeting() {
-        let insertPosition = bigGreeting.textContent.indexOf("di");
-        let stringAwal = bigGreeting.textContent.slice(0, insertPosition);
-        let stringAkhir = bigGreeting.textContent.slice(15);
+        let insertPosition = bigGreetingOriginalText.indexOf("di");
+        let stringAwal = bigGreetingOriginalText.slice(0, insertPosition);
+        let stringAkhir = bigGreetingOriginalText.slice(15);
 
         let finalString = stringAwal + sessionStorage.getItem("userName") + " " + stringAkhir;
         
@@ -294,6 +294,8 @@ window.onload = () => {
     setInterval(() => {
         if (sessionStorage.getItem("userName") === null) {
             popupModal.classList.toggle("show");
+        } else {
+            rewriteGreeting();
         }
     }, 10000);
 
