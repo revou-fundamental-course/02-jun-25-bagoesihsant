@@ -738,13 +738,13 @@ html::-webkit-scrollbar {
 /* Popup */
 
 #popup {
-    position: absolute;
+    position: fixed;
     width: 30rem;
     top: 20%;
     left: 50%;
     transform: translate(-50%);
     z-index: 5;
-    background: linear-gradient(to right, var(--black-color-800), var(--black-color-900));
+    background: linear-gradient(to right, var(--red-color-500), var(--red-color-900));
     padding: 1rem;
     border-radius: 1rem;
     border: 1px solid var(--black-color-500);
@@ -798,10 +798,12 @@ html::-webkit-scrollbar {
     display: block;
     padding: .5rem;
     border-radius: 1rem;
+    border-style: none;
 }
 
 #popup #popup-form .form-group input[type="submit"] {
     cursor: pointer;
+    transition: background-color .5s ease, color .5s ease;
 }
 
 #popup #popup-form .form-group input[type="submit"]:hover {
