@@ -739,7 +739,7 @@ html::-webkit-scrollbar {
 
 #popup {
     position: fixed;
-    width: 60%;
+    width: 40%;
     top: 20%;
     left: 50%;
     transform: translate(-50%);
@@ -916,6 +916,10 @@ html::-webkit-scrollbar {
         gap: 2rem;
     }
 
+    #popup {
+        width: 60%;
+    }
+
 }
 
 @media screen and (max-width: 585px) {
@@ -968,5 +972,9 @@ html::-webkit-scrollbar {
     .footer .container .copy-icon img:nth-child(4) {
         height: 1.75rem;
         width: 1.75rem;
+    }
+
+    #popup {
+        width: 60%;
     }
 }
