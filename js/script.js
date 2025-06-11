@@ -12,6 +12,28 @@ window.onload = () => {
     // Accordion Components
     let accordionsPanels = document.querySelectorAll(".accordion-panel");
 
+    // Message Us Components
+    let responseBody = document.querySelector(".contact-response .response-body");
+    let responseForm = document.querySelector("form#contact-form");
+    let responseReset = document.querySelector("form#contact-form #reset");
+
+    // Get All Form Response
+    let formName = responseForm.querySelector("#form-name");
+    let formMail = responseForm.querySelector("#form-email");
+    let formPhone = responseForm.querySelector("#form-phone-num");
+    let formMessage = responseForm.querySelector("#form-message");
+
+    // Get All Form Error Response Text Container
+    let formNameError = responseForm.querySelector(".form-name-error");
+    let formMailError = responseForm.querySelector(".form-email-error");
+    let formPhoneError = responseForm.querySelector(".form-phone-error");
+    let formMessageError = responseForm.querySelector(".form-message-error");
+
+    // Regexes'
+    const stringOnlyRegex = /^[a-zA-Z]+$/;
+    const emailPatternRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const numOnlyregex = /^\d+$/;
+
     // Show Slides' Function
     function showSlide(index) {
 
@@ -50,6 +72,165 @@ window.onload = () => {
         if (window.scrollY - sections[index].offsetHeight < sections[index].offsetTop) {
             navLinks[index].classList.add("active");
         }
+    }
+
+    // Validate Form
+    function validateFormNameInput(value) {
+        if (value === "") {
+            formNameError.textContent = "Value cannot be empty.";
+            formNameError.classList.add("fade-in");
+            return false;
+        }
+
+        if (!stringOnlyRegex.test(value)) {
+            formNameError.textContent = "Value can only contain alphabet characters.";
+            formNameError.classList.add("fade-in");
+            return false;
+        }
+        
+        return true;
+    }
+
+    function validateFormEmailInput(value) {
+        if (value === "" ) {
+            formMailError.textContent = "Value cannot be empty.";
+            formMailError.classList.add("fade-in");
+            return false;
+        }
+
+        if (!emailPatternRegex.test(value)) {
+            formMailError.textContent = "Value email format is invalid.";
+            formMailError.classList.add("fade-in");
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateFormPhoneInput(value) {
+        if (value === "") {
+            formPhoneError.textContent = "Value cannot be empty.";
+            formPhoneError.classList.add("fade-in");
+            return false;
+        }
+
+        if (!numOnlyregex.test(value)) {
+            formPhoneError.textContent = "Value can only contain numeric characters.";
+            formPhoneError.classList.add("fade-in");
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateFormMessageInput(value) {
+        if (value === "") {
+            formMessageError.textContent = "Value cannot be empty.";
+            formMessageError.classList.add("fade-in");
+            return false;
+        }
+
+        return true;
+    }
+
+    // Create Response Card
+    function createResponse(name, email, phone, message) {
+
+        let card = document.createElement("div");
+        card.className = "response-card flex flex-col fade-in";
+
+        // Card Time Section
+        let cardTime = document.createElement("div");
+        cardTime.className = "response-time grid col-2";
+        
+        let cardTimeLabel = document.createElement("strong");
+        cardTimeLabel.textContent = "Submit Time";
+
+        let cardTimeValue = document.createElement("p");
+        cardTimeValue.textContent = Date();
+
+        cardTime.appendChild(cardTimeLabel);
+        cardTime.appendChild(cardTimeValue);
+
+        // Card Name Section
+        let cardName = document.createElement("div");
+        cardName.className = "response-name grid col-2";
+
+        let cardNameLabel = document.createElement("strong");
+        cardNameLabel.textContent = "Name";
+
+        let cardNameValue = document.createElement("p");
+        cardNameValue.textContent = name;
+
+        cardName.appendChild(cardNameLabel);
+        cardName.appendChild(cardNameValue);
+
+        // Card Email Section
+        let cardMail = document.createElement("div");
+        cardMail.className = "response-email grid col-2";
+
+        let cardMailLabel = document.createElement("strong");
+        cardMailLabel.textContent = "Email";
+
+        let cardMailValue = document.createElement("p");
+        cardMailValue.textContent = email;
+
+        cardMail.appendChild(cardMailLabel);
+        cardMail.appendChild(cardMailValue);
+
+        // Card Phone Section
+        let cardPhone = document.createElement("div");
+        cardPhone.className = "response-phone-num grid col-2";
+
+        let cardPhoneLabel = document.createElement("strong");
+        cardPhoneLabel.textContent = "Phone";
+
+        let cardPhoneValue = document.createElement("p");
+        cardPhoneValue.textContent = phone;
+
+        cardPhone.appendChild(cardPhoneLabel);
+        cardPhone.appendChild(cardPhoneValue);
+
+        // Card Message Section
+        let cardMessage = document.createElement("div");
+        cardMessage.className = "response-message flex flex-col";
+
+        let cardMessageLabel = document.createElement("strong");
+        cardMessageLabel.textContent = "Message";
+
+        let cardMessageValue = document.createElement("p");
+        cardMessageValue.textContent = message;
+
+        cardMessage.appendChild(cardMessageLabel);
+        cardMessage.appendChild(cardMessageValue);
+
+        // Finalize Card
+        card.appendChild(cardTime);
+        card.appendChild(cardName);
+        card.appendChild(cardMail);
+        card.appendChild(cardPhone);
+        card.appendChild(cardMessage);
+
+        return card;
+    }
+
+    // Function clear form
+    function clearForm(){
+        formName.value = "";
+        formNameError.textContent = "";
+        formNameError.classList.remove("fade-in");
+
+        formMail.value = "";
+        formMailError.textContent = "";
+        formMailError.classList.remove("fade-in");
+
+        formPhone.value = "";
+        formPhoneError.textContent = "";
+        formPhoneError.classList.remove("fade-in");
+
+        formMessage.value = "";
+        formMessageError.textContent = "";
+        formMessageError.classList.remove("fade-in");
     }
 
     // Initial Function that run first
@@ -97,5 +278,55 @@ window.onload = () => {
         });
 
     });
+
+    // Add event listener to form
+    responseForm.addEventListener("submit", (event) => {
+
+        // Prevent form from reloading the page when submit is pressed
+        event.preventDefault();
+
+        // Form Validation
+
+        if (validateFormNameInput(formName.value)) {
+            formNameError.textContent = "";
+            formNameError.classList.remove("fade-in");
+        }
+
+        if (validateFormEmailInput(formMail.value)) {
+            formMailError.textContent = "";
+            formMailError.classList.remove("fade-in");
+        }
+
+        if (validateFormPhoneInput(formPhone.value)) {
+            formPhoneError.textContent = "";
+            formPhoneError.classList.remove("fade-in");
+        }
+
+        if (validateFormMessageInput(formMessage.value)) {
+            formMessageError.textContent = "";
+            formMessageError.classList.remove("fade-in");
+        }
+
+        if (
+            !validateFormNameInput(formName.value) || !validateFormEmailInput(formMail.value) || 
+            !validateFormPhoneInput(formPhone.value) || !validateFormMessageInput(formMessage.value)
+        ) {
+            return;
+        }
+
+        let outputCard = createResponse(
+            formName.value, formMail.value, formPhone.value, formMessage.value
+        );
+
+        responseBody.appendChild(outputCard);
+
+        outputCard.scrollIntoView();
+
+        clearForm();
+        
+    });
+
+    // Add Event Listener on reset button
+    responseReset.addEventListener("click", () => {clearForm()});
 
 }
