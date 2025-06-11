@@ -272,6 +272,16 @@ window.onload = () => {
         formMessageError.classList.remove("fade-in");
     }
 
+    function rewriteGreeting() {
+        let insertPosition = bigGreeting.textContent.indexOf("di");
+        let stringAwal = bigGreeting.textContent.slice(0, insertPosition);
+        let stringAkhir = bigGreeting.textContent.slice(15);
+
+        let finalString = stringAwal + sessionStorage.getItem("userName") + " " + stringAkhir;
+        
+        bigGreeting.textContent = finalString;
+    }
+
     // Initial Function that run first
     showSlide();
     changeLinkState();
@@ -285,14 +295,7 @@ window.onload = () => {
         if (sessionStorage.getItem("userName") === null) {
             popupModal.classList.toggle("show");
         } else {
-            let insertPosition = bigGreeting.textContent.indexOf("di");
-            let stringAwal = bigGreeting.textContent.slice(0, insertPosition);
-            let stringAkhir = bigGreeting.textContent.slice(15);
-
-            let finalString = stringAwal + sessionStorage.getItem("userName") + " " + stringAkhir;
-            
-            bigGreeting.textContent = finalString;
-
+            rewriteGreeting();
         }
     }, 10000);
 
@@ -445,6 +448,9 @@ window.onload = () => {
 
         // Close popup
         popupModal.classList.toggle("show");
+
+        // Rewrite Greeting
+        rewriteGreeting();
 
     })
 
