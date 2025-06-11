@@ -25,7 +25,7 @@
     --white-color-100 : #FAFAFA;
     
     --black-color-900 : #000000;
-    --black-color-500 : #7B7B7B;
+    --black-color-500 : #7b7b7b;
     --black-color-100 : #E9E9E9;
 
     --turqoise-color-900 : #1D41A7;
@@ -370,7 +370,7 @@ html::-webkit-scrollbar {
 .achievement .container {
     margin: 0 auto;
     min-height: inherit;
-    padding: 4.5rem 0;
+    padding: 5rem 0;
     gap: 1rem;
 }
 
@@ -499,4 +499,168 @@ html::-webkit-scrollbar {
 
 /* Achievements End */
 
+/* Contact Start */
 
+.contact {
+    min-height: 100vh;
+    background-color: var(--white-color-100);
+}
+
+.contact .container {
+    margin: 0 auto;
+    padding: 5rem 0;
+}
+
+.contact .container .contact-form {
+    gap: 2rem;
+}
+
+.contact .container .contact-form .title {
+    font-size: 4rem;
+    font-weight: 500;
+    height: 100%;
+}
+
+.contact .container .contact-form form {
+    gap: 2rem;
+}
+
+.contact .container .contact-form form label {
+    display: block;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 .25rem;
+}
+
+.contact .container .contact-form form input {
+    display: block;
+    width: 100%;
+    padding: .5rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    border-radius: 1rem;
+    border-style: none;
+    border: 1px solid rgb(123 123 123 / 50%);
+}
+
+.contact .container .contact-form form input:hover {
+    border: 1px solid var(--black-color-900);
+}
+
+.contact .container .contact-form form textarea {
+    display: block;
+    width: 100%;
+    resize: none;
+    height: 5rem;
+    border-radius: 1rem;
+    border-style: none;
+    border: 1px solid rgb(123 123 123 / 50%);
+    padding: .5rem;
+    text-align: justify;
+}
+
+.contact .container .contact-form form textarea:hover {
+    border: 1px solid var(--black-color-900);
+}
+
+.contact .container .contact-form form input[type=submit] {
+    cursor: pointer;
+    transition: color .5s ease, background-color .5s ease;
+}
+
+.contact .container .contact-form form input[type=submit]:hover {
+    background-color: var(--black-color-900);
+    color: var(--white-color-900);
+}
+
+.contact .container .contact-form form input[type=button] {
+    cursor: pointer;
+    transition: color .5s ease, background-color .5s ease;
+}
+
+.contact .container .contact-form form input[type=button]:hover {
+    background-color: var(--black-color-900);
+    color: var(--white-color-900);
+}
+
+.contact .container .contact-form form .form-group:last-child {
+    gap: 2rem;
+}
+
+.contact .container .contact-form form .form-name-error {
+    padding: 0 .5rem;
+    color: var(--red-color-500);
+}
+
+.contact .container .contact-form form .form-email-error {
+    padding: 0 .5rem;
+    color: var(--red-color-500);
+}
+
+.contact .container .contact-form form .form-phone-error {
+    padding: 0 .5rem;
+    color: var(--red-color-500);
+}
+
+.contact .container .contact-form form .form-message-error {
+    padding: 0 .5rem;
+    color: var(--red-color-500);
+}
+
+.contact .container .contact-response {
+    gap: 2rem;
+    padding: 0 1rem;
+    max-height: 42rem;
+    overflow: auto;
+}
+
+.contact .container .contact-response::-webkit-scrollbar {
+    display: none;
+}
+
+.contact .container .contact-response .response-title {
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.contact .container .contact-response .response-body {
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.contact .container .contact-response .response-body .response-card {
+    background: linear-gradient(45deg, var(--black-color-100), var(--white-color-400), var(--white-color-500));
+    padding: 1rem;
+    border-radius: 1rem;
+    gap: .5rem;
+}
+
+.contact .container .contact-response .response-body .response-card .response-message {
+    gap: .5rem;
+}
+
+/* Contact End */
+
+
+
+/* Animations */
+
+.fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .5s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
