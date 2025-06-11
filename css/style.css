@@ -735,6 +735,71 @@ html::-webkit-scrollbar {
     }
 }
 
+/* Popup */
+
+#popup {
+    position: absolute;
+    width: 30rem;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 5;
+    background: linear-gradient(to right, var(--black-color-800), var(--black-color-900));
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid var(--black-color-500);
+    display: none;
+}
+
+#popup.show {
+    display: block;
+}
+
+#popup .popup-header {
+    justify-content: space-between;
+}
+
+#popup .popup-header .title {
+    font-size: 2rem;
+    color: var(--white-color-900);
+    text-shadow: 0 4px 4px var(--black-color-900);
+}
+
+#popup .popup-header img {
+    height: 1.75rem;
+    width: 1.75rem;
+    cursor: pointer;
+    display: block;
+    filter: invert(100%) sepia(0%) saturate(7470%) hue-rotate(114deg) brightness(108%) contrast(107%);
+}
+
+#popup p {
+    font-size: 1rem;
+    color: var(--white-color-900);
+    text-shadow: 0 4px 4px var(--black-color-900);
+    margin: 1rem 0;
+}
+
+#popup #popup-form {
+    gap: 1rem;
+}
+
+#popup #popup-form .form-group {
+    gap: .25rem;
+}
+
+#popup #popup-form .form-group label{
+    display: block;
+    font-size: 1rem;
+    color: var(--white-color-900);
+}
+
+#popup #popup-form .form-group input {
+    display: block;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
 /* Responsive CSS */
 
 @media screen and (max-width: 1337px) {
