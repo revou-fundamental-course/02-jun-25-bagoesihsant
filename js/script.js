@@ -272,6 +272,12 @@ window.onload = () => {
         formMessageError.classList.remove("fade-in");
     }
 
+    function clearPopupForm(){
+        popupFormUsername.value = "";
+        popupFormError.textContent = "";
+        popupFormError.classList.remove("fade-in");
+    }
+
     function rewriteGreeting() {
         let insertPosition = bigGreetingOriginalText.indexOf("di");
         let stringAwal = bigGreetingOriginalText.slice(0, insertPosition);
@@ -426,6 +432,7 @@ window.onload = () => {
     // Add close logic to popup modal close button
     popupModalClose.addEventListener("click", () => {
         popupModal.classList.toggle("show");
+        clearPopupForm();
     });
 
     // Add form submit logic to popup modal form
@@ -451,6 +458,8 @@ window.onload = () => {
 
         // Rewrite Greeting
         rewriteGreeting();
+
+        clearPopupForm();
 
     })
 
