@@ -28,7 +28,7 @@
                     <a href="#achievement">Achievements</a>
                 </div>
                 <div class="menu">
-                    <a href="#">Contact Us</a>
+                    <a href="#contact">Contact Us</a>
                 </div>
             </div>
             <div class="login flex align-items-center">
@@ -64,7 +64,7 @@
         <div class="container flex flex-col align-items-center justify-content-center">
             <h1 class="greeting">Selamat datang di Arlington College</h1>
             <p class="desc">Membentuk pribadi unggul dan berintegritas dengan mengedepankan kejujuran dan keadilan</p>
-            <a href="#" class="cta">Hubungi Kami</a>
+            <a href="#contact" class="cta">Hubungi Kami</a>
             <div class="slide-navigator flex align-items-center">
                 <div class="dot" data-index="1"></div>
                 <div class="dot" data-index="2"></div>
@@ -367,7 +367,41 @@
 
     <!-- Contact Us -->
     <section id="contact" class="contact">
-        <div class="contaner"></div>
+        <div class="container grid col-2">
+            <div class="contact-form flex flex-col">
+                <h1 class="title">Keep in touch with Us</h1>
+                <form action="#" method="post" id="contact-form" class="flex flex-col justify-content-center">
+                    <div class="form-group">
+                        <label for="form-name">Nama</label>
+                        <input type="text" name="form-name" id="form-name">
+                        <div class="form-name-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Email</label>
+                        <input type="email" name="form-email" id="form-email">
+                        <div class="form-email-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-phone-num">Phone Number</label>
+                        <input type="tel" name="form-phone-num" id="form-phone-num">
+                        <div class="form-phone-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-message">Message</label>
+                        <textarea name="form-message" id="form-message"></textarea>
+                        <div class="form-message-error"></div>
+                    </div>
+                    <div class="form-group flex align-items-center">
+                        <input type="submit" value="Send Message" id="submit">
+                        <input type="button" value="Reset" id="reset">
+                    </div>
+                </form>
+            </div>
+            <div class="contact-response flex flex-col">
+                <h2 class="response-title">Your Messages' will appear here.</h2>
+                <div class="response-body flex flex-col justify-content-center"></div>
+            </div>
+        </div>
     </section>
     <!-- Contact Us -->
 
