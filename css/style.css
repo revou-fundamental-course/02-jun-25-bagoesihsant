@@ -800,6 +800,20 @@ html::-webkit-scrollbar {
     border-radius: 1rem;
 }
 
+#popup #popup-form .form-group input[type="submit"] {
+    cursor: pointer;
+}
+
+#popup #popup-form .form-group input[type="submit"]:hover {
+    background-color: var(--black-color-800);
+    color: var(--white-color-100);
+}
+
+#popup #popup-form .form-group .form-user-name-error {
+    padding: 0 .5rem;
+    color: var(--red-color-500);
+}
+
 /* Responsive CSS */
 
 @media screen and (max-width: 1337px) {
