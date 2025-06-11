@@ -9,6 +9,15 @@ window.onload = () => {
     let navLinks = document.querySelectorAll(".nav .container .menus .menu");
     let sections = document.querySelectorAll("section");
 
+    // Navigation Component(s)
+    let hamburgerTrigger = document.querySelector(".hamburger-toggle");
+    let dropdownMenuWrapper = document.querySelector(".nav .container .menus-small .menus-small-menus");
+
+    let dropdownMenuHome = document.querySelector(".nav .container .menus-small .menus-small-menus .menu a[href='#home']");
+    let dropdownMenuAbout = document.querySelector(".nav .container .menus-small .menus-small-menus .menu a[href='#about']");
+    let dropdownMenuAchievement = document.querySelector(".nav .container .menus-small .menus-small-menus .menu a[href='#achievement']");
+    let dropdownMenuContact = document.querySelector(".nav .container .menus-small .menus-small-menus .menu a[href='#contact']");
+
     // Accordion Components
     let accordionsPanels = document.querySelectorAll(".accordion-panel");
 
@@ -242,6 +251,8 @@ window.onload = () => {
         showSlide(slideIndex);
     }, 5000);
 
+    
+
     // Add click on slider dots'
     slideNavigatorDots.forEach(dot => {
 
@@ -328,5 +339,37 @@ window.onload = () => {
 
     // Add Event Listener on reset button
     responseReset.addEventListener("click", () => {clearForm()});
+
+    // Add Event Listener on Hamburger Menu
+    hamburgerTrigger.addEventListener("click", () => {
+        
+        // Trigger the expand
+        dropdownMenuWrapper.classList.toggle("expanded");
+
+    });
+
+    dropdownMenuHome.addEventListener("click", () => {
+
+        dropdownMenuWrapper.classList.toggle("expanded");
+
+    });
+
+    dropdownMenuAbout.addEventListener("click", () => {
+
+        dropdownMenuWrapper.classList.toggle("expanded");
+
+    });
+
+    dropdownMenuAchievement.addEventListener("click", () => {
+
+        dropdownMenuWrapper.classList.toggle("expanded");
+
+    });
+
+    dropdownMenuContact.addEventListener("click", () => {
+
+        dropdownMenuWrapper.classList.toggle("expanded");
+        
+    });
 
 }
