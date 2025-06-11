@@ -739,7 +739,7 @@ html::-webkit-scrollbar {
 
 #popup {
     position: fixed;
-    width: 30rem;
+    width: 60%;
     top: 20%;
     left: 50%;
     transform: translate(-50%);
@@ -813,7 +813,7 @@ html::-webkit-scrollbar {
 
 #popup #popup-form .form-group .form-user-name-error {
     padding: 0 .5rem;
-    color: var(--red-color-500);
+    color: var(--black-color-900);
 }
 
 /* Responsive CSS */

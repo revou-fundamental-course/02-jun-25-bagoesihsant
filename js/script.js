@@ -294,8 +294,6 @@ window.onload = () => {
     setInterval(() => {
         if (sessionStorage.getItem("userName") === null) {
             popupModal.classList.toggle("show");
-        } else {
-            rewriteGreeting();
         }
     }, 10000);
 
