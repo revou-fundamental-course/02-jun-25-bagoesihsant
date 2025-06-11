@@ -41,12 +41,21 @@ window.onload = () => {
     // Popup Modal
     let popupModal = document.querySelector("#popup");
     let popupModalClose = document.querySelector("#popup .popup-header .popup-header-close");
+    let popupModalOpen = document.querySelector(".nav .container .login");
+    let popupForm = document.querySelector("#popup #popup-form");
+    let popupFormUsername = document.querySelector("#popup #popup-form #user-name");
+    let popupFormError = document.querySelector("#popup #popup-form .form-user-name-error");
 
+    // Hero Big Greeting
+    let bigGreeting = document.querySelector("#home .container .greeting");
 
     // Regexes'
-    const stringOnlyRegex = /^[a-zA-Z]+$/;
+    const stringOnlyRegex = /^[a-zA-Z\s]+$/;
     const emailPatternRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const numOnlyregex = /^\d+$/;
+
+    // Constant(s)
+    const bigGreetingOriginalText = bigGreeting.textContent;
 
     // Show Slides' Function
     function showSlide(index) {
@@ -89,6 +98,22 @@ window.onload = () => {
     }
 
     // Validate Form
+    function validateFormUserName(value) {
+        if (value === "") {
+            popupFormError.textContent = "Value cannot be empty.";
+            popupFormError.classList.add("fade-in");
+            return false;
+        }
+
+        if (!stringOnlyRegex.test(value)) {
+            popupFormError.textContent = "Value can only contain alphabet characters.";
+            popupFormError.classList.add("fade-in");
+            return false;
+        }
+
+        return true;
+    }
+
     function validateFormNameInput(value) {
         if (value === "") {
             formNameError.textContent = "Value cannot be empty.";
@@ -256,7 +281,20 @@ window.onload = () => {
         showSlide(slideIndex);
     }, 5000);
 
-    
+    setInterval(() => {
+        if (sessionStorage.getItem("userName") === null) {
+            popupModal.classList.toggle("show");
+        } else {
+            let insertPosition = bigGreeting.textContent.indexOf("di");
+            let stringAwal = bigGreeting.textContent.slice(0, insertPosition);
+            let stringAkhir = bigGreeting.textContent.slice(15);
+
+            let finalString = stringAwal + sessionStorage.getItem("userName") + " " + stringAkhir;
+            
+            bigGreeting.textContent = finalString;
+
+        }
+    }, 10000);
 
     // Add click on slider dots'
     slideNavigatorDots.forEach(dot => {
@@ -377,9 +415,37 @@ window.onload = () => {
         
     });
 
+    // Add open logic to popup modal button
+    popupModalOpen.addEventListener("click", () => {
+        popupModal.classList.toggle("show");
+    });
+
     // Add close logic to popup modal close button
     popupModalClose.addEventListener("click", () => {
         popupModal.classList.toggle("show");
     });
+
+    // Add form submit logic to popup modal form
+    popupForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        if (!validateFormUserName(popupFormUsername.value)) {
+            popupFormError.textContent = "";
+            popupFormError.classList.remove("fade-in");
+            return;
+        }
+
+        // Apabila sukses login
+        try {
+            sessionStorage.setItem("userName", popupFormUsername.value);
+        } catch (error) {
+            console.log(error);
+        }
+
+        // Close popup
+        popupModal.classList.toggle("show");
+
+    })
 
 }
