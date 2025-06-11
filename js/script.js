@@ -38,6 +38,11 @@ window.onload = () => {
     let formPhoneError = responseForm.querySelector(".form-phone-error");
     let formMessageError = responseForm.querySelector(".form-message-error");
 
+    // Popup Modal
+    let popupModal = document.querySelector("#popup");
+    let popupModalClose = document.querySelector("#popup .popup-header .popup-header-close");
+
+
     // Regexes'
     const stringOnlyRegex = /^[a-zA-Z]+$/;
     const emailPatternRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -370,6 +375,11 @@ window.onload = () => {
 
         dropdownMenuWrapper.classList.toggle("expanded");
         
+    });
+
+    // Add close logic to popup modal close button
+    popupModalClose.addEventListener("click", () => {
+        popupModal.classList.toggle("show");
     });
 
 }
