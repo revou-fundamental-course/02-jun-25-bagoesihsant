@@ -150,6 +150,40 @@ html::-webkit-scrollbar {
     cursor: pointer;
 }
 
+.nav .container .menus-small img {
+    height: 2rem;
+    width: 2rem;
+    object-fit: cover;
+    cursor: pointer;
+    display: none;
+}
+
+.nav .container .menus-small .menus-small-menus {
+    width: 100%;
+    background-color: var(--white-color-900);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 4rem;
+    display: none;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .5s ease;
+}
+
+.nav .container .menus-small .menus-small-menus.expanded {
+    grid-template-rows: 1fr;
+}
+
+.nav .container .menus-small .menus-small-menus .menus-wrapper {
+    width: 60%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.nav .container .menus-small .menus-small-menus .menus-wrapper .menu {
+    margin: 1rem 0;
+}
+
 /* Nav End */
 
 /* Hero Start */
@@ -725,6 +759,19 @@ html::-webkit-scrollbar {
 }
 
 @media screen and (max-width: 1040px) {
+
+    .nav .container .menus-small .menus-small-menus {
+        display: grid;
+    }
+
+    .nav .container {
+        gap: 1rem;
+    }
+
+    .nav .container .menus-small img {
+        display: block;
+    }
+
     .nav .logo-text {
         display: none;
     }
